@@ -7,4 +7,5 @@ print('oh my god')
 
 
 A=['я','дурочка']
-print(A)
+for i in A:
+    print(i)
