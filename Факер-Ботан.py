@@ -13,7 +13,11 @@ clock = pygame.time.Clock()
 
 fontUI = pygame.font.Font(None, 30) #шрифт по умолчанию
 
-imgBrick = pygame.image.load('images/block_brick.png')
+imgBrick = pygame.image.load('images/Brick.png')
+imgFackers = [pygame.image.load('images/Facker1.png'),
+              pygame.image.load('images/Facker2.png'),
+              pygame.image.load('images/Facker3.png'),
+              pygame.image.load('images/Facker4.png'),]
 
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]] #смещение в соответствующее направление
 
