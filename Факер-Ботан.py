@@ -70,7 +70,16 @@ class Facker: #класс факеров
         self.keyDOWN = keyList[3]
         self.keySHOT = keyList[4]
 
+        self.rank = 0
+        self.image = pygame.transform.rotate(imgFackers[self.rank], -self.direct * 90)
+        self.rect = self.image.get_rect(center=self.rect.center)
+
     def update(self): #обновление статусов
+
+        self.image = pygame.transform.rotate(imgFackers[self.rank], -self.direct * 90)
+        self.image = pygame.transform.scale(self.image, (self.image.get_width() - 5, self.image.get_height() - 5))
+        self.rect = self.image.get_rect(center=self.rect.center)
+
         oldX, oldY = self.rect.topleft #сохраняем старую позицию
         if keys[self.keyLEFT]: #движение влево
             self.rect.x -= self.moveSpeed
@@ -99,11 +108,7 @@ class Facker: #класс факеров
         if self.shotTimer > 0: self.shotTimer -= 1
 
     def draw(self): #рисовка
-        pygame.draw.rect(window, self.color, self.rect)
-
-        x = self.rect.centerx + DIRECTS[self.direct][0] * 30
-        y = self.rect.centery + DIRECTS[self.direct][1] * 30
-        pygame.draw.line(window, 'white', self.rect.center, (x, y), 4)
+        window.blit(self.image, self.rect)
 
     #метод насения урона
     def damage(self, value):
@@ -215,8 +220,7 @@ class Block: #создаем класс блоков-преград (учебн�
         pass
 
     def draw(self):
-        pygame.draw.rect(window, 'green', self.rect)
-        pygame.draw.rect(window, 'gray20', self.rect, 2)
+        window.blit(imgBrick, self.rect)
 
     def damage(self, value):
         self.hp -= value
