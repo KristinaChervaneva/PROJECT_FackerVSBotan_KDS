@@ -13,6 +13,8 @@ clock = pygame.time.Clock()
 
 fontUI = pygame.font.Font(None, 30) #шрифт по умолчанию
 
+imgBrick = pygame.image.load('images/block_brick.png')
+
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]] #смещение в соответствующее направление
 
 class UI:
