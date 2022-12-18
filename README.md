@@ -1,2 +1,2 @@
-# PROJECT_SAPER_KDS
-Игра "Сапер" для курса по ООП
+# PROJECT_FackerVSBotan_KDS
+Игра "Факер против Ботана" для курса по ООП
