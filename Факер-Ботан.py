@@ -141,7 +141,15 @@ class Botan: #класс ботанов
         self.keyDOWN = keyList[3]
         self.keySHOT = keyList[4]
 
+        self.rank = 0
+        self.image = pygame.transform.rotate(imgBotans[self.rank], -self.direct * 90)
+        self.rect = self.image.get_rect(center=self.rect.center)
+
     def update(self): #обновление статусов
+        self.image = pygame.transform.rotate(imgBotans[self.rank], -self.direct * 90)
+        self.image = pygame.transform.scale(self.image, (self.image.get_width() - 5, self.image.get_height() - 5))
+        self.rect = self.image.get_rect(center=self.rect.center)
+
         oldX, oldY = self.rect.topleft #сохраняем старую позицию
         if keys[self.keyLEFT]: #движение влево
             self.rect.x -= self.moveSpeed
@@ -170,11 +178,7 @@ class Botan: #класс ботанов
         if self.shotTimer > 0: self.shotTimer -= 1
 
     def draw(self): #рисовка
-        pygame.draw.rect(window, self.color, self.rect)
-
-        x = self.rect.centerx + DIRECTS[self.direct][0] * 30
-        y = self.rect.centery + DIRECTS[self.direct][1] * 30
-        pygame.draw.line(window, 'white', self.rect.center, (x, y), 4)
+        window.blit(self.image, self.rect)
 
     #метод насения урона
     def damage(self, value):
@@ -230,8 +234,8 @@ bullets = []
 
 
 objects = [] #тут храним все объекты, которые используем в игре
-Facker('blue', 100, 275, 0, (pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s, pygame.K_SPACE))
-Botan('red', 650, 275, 0, (pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN, pygame.K_RSHIFT))
+Facker('red', 100, 275, 0, (pygame.K_a, pygame.K_d, pygame.K_w, pygame.K_s, pygame.K_SPACE))
+Botan('blue', 650, 275, 0, (pygame.K_LEFT, pygame.K_RIGHT, pygame.K_UP, pygame.K_DOWN, pygame.K_RSHIFT))
 ui = UI()
 
 for _ in range(50): #расставляем блоки на поле рандомным образом
