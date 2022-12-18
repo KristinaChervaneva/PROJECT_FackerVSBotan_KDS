@@ -10,7 +10,7 @@ TILE = 50 #ширина картинки
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 
-DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]]
+DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]] #смещение в соответствующее направление
 
 
 class Man:
@@ -31,16 +31,16 @@ class Man:
         self.keySHOT = keyList[4]
 
     def update(self): #обновление статусов
-        if keys[self.keyLEFT]:
+        if keys[self.keyLEFT]: #движение влево
             self.rect.x -= self.moveSpeed
             self.direct = 3
-        elif keys[self.keyRIGHT]:
+        elif keys[self.keyRIGHT]: #движение вправо
             self.rect.x += self.moveSpeed
             self.direct = 1
-        elif keys[self.keyUP]:
+        elif keys[self.keyUP]: #движение вверх
             self.rect.y -= self.moveSpeed
             self.direct = 0
-        elif keys[self.keyDOWN]:
+        elif keys[self.keyDOWN]: #движение вниз
             self.rect.y += self.moveSpeed
             self.direct = 2
 
