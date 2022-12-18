@@ -18,6 +18,14 @@ imgFackers = [pygame.image.load('images/Facker1.png'),
               pygame.image.load('images/Facker2.png'),
               pygame.image.load('images/Facker3.png'),
               pygame.image.load('images/Facker4.png'),]
+imgBotans = [pygame.image.load('images/Botan1.png'),
+             pygame.image.load('images/Botan2.png'),
+             pygame.image.load('images/Botan3.png'),
+             pygame.image.load('images/Botan4.png'),]
+imgBangs = [pygame.image.load('images/Bang1.png'),
+            pygame.image.load('images/Bang2.png'),
+            pygame.image.load('images/Bang3.png'),]
+
 
 DIRECTS = [[0, -1], [1, 0], [0, 1], [-1, 0]] #смещение в соответствующее направление
 
