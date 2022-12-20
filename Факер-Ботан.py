@@ -1,4 +1,4 @@
-# Создание, отрисовка и управление танками
+
 import pygame
 from random import randint
 
